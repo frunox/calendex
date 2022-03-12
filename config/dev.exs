@@ -25,7 +25,15 @@ config :calendex, CalendexWeb.Endpoint,
   secret_key_base: "tZO3HcJ+aMJ1al3ffD7AwknJd/2OnT5mKyIleDuC1yyYnv7ps8aG8ahKJ54KWuKe",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support
