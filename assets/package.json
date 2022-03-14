@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
-    "deploy": "NODE_ENV=production postcss css/app.css -o ../priv/static/assets/app.css"
+  "scripts": {
+    "deploy": "NODE_ENV=production tailwindcss --postcss --minify --input=css/app.css --output=../priv/static/assets/app.css"
   },
   "keywords": [],
   "author": "",
