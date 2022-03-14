@@ -14,10 +14,20 @@ defmodule CalendexWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CalendexWeb do
-    pipe_through :browser
+  # scope "/", CalendexWeb do
+  #   pipe_through :browser
 
-    live "/", PageLive
+  #   live "/", PageLive
+  # end
+
+  # public route for live session
+  live_session :public, on_mount: CalendexWeb.Live.InitAssigns do
+    scope "/", CalendexWeb do
+      pipe_through :browser
+
+      live "/", PageLive
+      live "/:event_type_slug", EventTypeLive
+    end
   end
 
   # Other scopes may use custom stacks.
