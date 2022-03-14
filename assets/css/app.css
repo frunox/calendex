@@ -1,91 +1,94 @@
-/* This file is for your main application CSS */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Alerts and form errors used by phx.new */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-}
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-}
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-}
-.alert p {
-  margin-bottom: 0;
-}
-.alert:empty {
-  display: none;
-}
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
+.pink-border {
+  @apply border-pink-500;
 }
 
-/* LiveView specific classes for your customization */
+.purple-border {
+  @apply border-purple-500;
+}
+
+.blue-border {
+  @apply border-blue-500;
+}
+
+.gray-border {
+  @apply border-gray-500;
+}
+
+.red-border {
+  @apply border-red-500;
+}
+
+.yellow-border {
+  @apply border-yellow-500;
+}
+
+.green-border {
+  @apply border-green-500;
+}
+
+.indigo-border {
+  @apply border-indigo-500;
+}
+
+.pink-bg {
+  @apply bg-pink-500;
+}
+
+.purple-bg {
+  @apply bg-purple-500;
+}
+
+.blue-bg {
+  @apply bg-blue-500;
+}
+
+.gray-bg {
+  @apply bg-gray-500;
+}
+
+.red-bg {
+  @apply bg-red-500;
+}
+
+.yellow-bg {
+  @apply bg-yellow-500;
+}
+
+.green-bg {
+  @apply bg-green-500;
+}
+
+.indigo-bg {
+  @apply bg-indigo-500;
+}
+
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {
   display: none;
 }
 
-.phx-click-loading {
-  opacity: 0.5;
-  transition: opacity 1s ease-out;
+.grid-column-1 {
+  grid-column: 1;
 }
-
-.phx-disconnected {
-  cursor: wait;
+.grid-column-2 {
+  grid-column: 2;
 }
-.phx-disconnected * {
-  pointer-events: none;
+.grid-column-3 {
+  grid-column: 3;
 }
-
-.phx-modal {
-  opacity: 1 !important;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+.grid-column-4 {
+  grid-column: 4;
 }
-
-.phx-modal-content {
-  background-color: #fefefe;
-  margin: 15vh auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.grid-column-5 {
+  grid-column: 5;
 }
-
-.phx-modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.grid-column-6 {
+  grid-column: 6;
 }
-
-.phx-modal-close:hover,
-.phx-modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.grid-column-7 {
+  grid-column: 7;
 }
