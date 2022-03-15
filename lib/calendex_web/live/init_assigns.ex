@@ -4,7 +4,8 @@ defmodule CalendexWeb.Live.InitAssigns do
   def on_mount(:default, _params, _session, socket) do
     owner = Application.get_env(:calendex, :owner)
     #
-    time_zone = "America/Chicago"
+    # "America/Chicago"
+    time_zone = get_connect_params(socket)["timezone"]
     # IO.inspect(owner, label: "^^^^^^^^ owner")
     IO.inspect(time_zone, label: "^^^ time_zone in init_assigns.ex")
 

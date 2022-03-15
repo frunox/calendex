@@ -1,6 +1,7 @@
 defmodule Calendex.EventType.Repo do
   import Ecto.Query, only: [order_by: 3]
 
+  # alias CalendexWeb.Components.EventType
   alias Calendex.{EventType, Repo}
 
   def available do
