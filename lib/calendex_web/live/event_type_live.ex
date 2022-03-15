@@ -4,12 +4,15 @@ defmodule CalendexWeb.EventTypeLive do
   alias Timex.Duration
 
   def mount(%{"event_type_slug" => slug}, _session, socket) do
+    IO.inspect(socket.assigns, label: "in event_type_live mount socket.assigns")
+
     case Calendex.get_event_type_by_slug(slug) do
       {:ok, event_type} ->
         socket =
           socket
           |> assign(event_type: event_type)
           |> assign(page_title: event_type.name)
+          |> assign(time_zone: "America/Chicago")
 
         # |> assign_dates()
 
@@ -27,7 +30,7 @@ defmodule CalendexWeb.EventTypeLive do
   end
 
   defp assign_dates(socket, params) do
-    IO.inspect(socket.assigns, label: "()()() socket.assigns in assign_datesa()")
+    IO.inspect(socket.assigns, label: "()()() socket.assigns in assign_dates()")
     current = current_from_params(socket, params)
     beginning_of_month = Timex.beginning_of_month(current)
     end_of_month = Timex.end_of_month(current)
