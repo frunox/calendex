@@ -12,7 +12,8 @@ defmodule CalendexWeb.EventTypeLive do
           socket
           |> assign(event_type: event_type)
           |> assign(page_title: event_type.name)
-          |> assign(time_zone: "America/Chicago")
+
+        # |> assign(time_zone: "America/Chicago")
 
         # |> assign_dates()
 
