@@ -11,7 +11,9 @@ config :calendex,
   ecto_repos: [Calendex.Repo],
   owner: %{
     name: "Bob Boss",
-    time_zone: "America/Chicago"
+    time_zone: "America/Chicago",
+    day_start: 9,
+    day_end: 19
   }
 
 # Configures the endpoint

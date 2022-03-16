@@ -6,7 +6,7 @@ defmodule CalendexWeb.Live.InitAssigns do
     #
     # "America/Chicago"
     # time_zone = get_connect_params(socket)["timezone"]
-    time_zone = owner.time_zone
+    time_zone = get_connect_params(socket)["timezone"] || owner.time_zone
     # IO.inspect(owner, label: "^^^^^^^^ owner")
     IO.inspect(time_zone, label: "^^^ time_zone in init_assigns.ex")
 
