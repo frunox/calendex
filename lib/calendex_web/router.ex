@@ -28,6 +28,7 @@ defmodule CalendexWeb.Router do
       live "/", PageLive
       live "/:event_type_slug", EventTypeLive
       live "/:event_type_slug/:time_slot", ScheduleEventLive
+      live "/events/:event_type_slug/:event_id", EventsLive
     end
   end
 
