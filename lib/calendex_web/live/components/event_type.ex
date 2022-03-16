@@ -4,6 +4,7 @@ defmodule CalendexWeb.Components.EventType do
   import CalendexWeb.LiveViewHelpers
 
   alias __MODULE__
+  alias CalendexWeb.Router.Helpers, as: Routes
 
   def selector(assigns) do
     ~H"""
@@ -24,7 +25,7 @@ defmodule CalendexWeb.Components.EventType do
           next_month: next_month
         } = assigns
       ) do
-    IO.inspect(current_path, label: "!!!! current_path in calendar-event_type.ex")
+    IO.inspect(previous_month, label: "!!!! previous_month in calendar-event_type.ex")
     previous_month_path = build_path(current_path, %{month: previous_month})
     next_month_path = build_path(current_path, %{month: next_month})
 
@@ -81,6 +82,7 @@ defmodule CalendexWeb.Components.EventType do
     date_path = build_path(current_path, %{date: date})
     disabled = Timex.compare(date, Timex.today(time_zone)) == -1
     weekday = Timex.weekday(date, :monday)
+    # IO.inspect(date, label: "======= date ========")
 
     class =
       class_list([
@@ -99,6 +101,38 @@ defmodule CalendexWeb.Components.EventType do
 
     ~H"""
     <%= live_patch to: @date_path, class: @class, disabled: @disabled do %>
+      <%= @text %>
+    <% end %>
+    """
+  end
+
+  def time_slot(
+        %{
+          socket: socket,
+          event_type: event_type,
+          time_slot: time_slot,
+          time_zone: time_zone
+        } = assigns
+      ) do
+    text =
+      time_slot
+      |> DateTime.shift_zone!(time_zone)
+      |> Timex.format!("{h24}:{m}")
+
+    slot_string = DateTime.to_iso8601(time_slot)
+
+    schedule_path =
+      socket
+      |> Routes.live_path(CalendexWeb.ScheduleEventLive, event_type.slug, slot_string)
+      |> URI.decode()
+
+    assigns =
+      assigns
+      |> assign(text: text)
+      |> assign(schedule_path: schedule_path)
+
+    ~H"""
+    <%= live_redirect to: @schedule_path, class: "text-center block w-full p-4 mb-2 font-bold text-blue-600 border border-blue-300 rounded-md hover:border-blue-600" do %>
       <%= @text %>
     <% end %>
     """
