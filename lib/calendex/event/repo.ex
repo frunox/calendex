@@ -1,4 +1,5 @@
 defmodule Calendex.Event.Repo do
+  import Ecto.Query
   alias Calendex.{Event, Repo}
 
   def insert(params) do
@@ -18,5 +19,15 @@ defmodule Calendex.Event.Repo do
       event ->
         {:ok, event}
     end
+  end
+
+  def get_by_start_date(date) do
+    IO.inspect(date, label: "1111 date  1111")
+
+    Event
+    |> IO.inspect(label: "*&^*&^ Event *&^*&^")
+    |> where([e], fragment("?::date", e.start_at) == ^date)
+    |> order_by(:start_at)
+    |> Repo.all()
   end
 end

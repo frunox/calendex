@@ -8,14 +8,14 @@ defmodule CalendexWeb.Live.InitAssigns do
     # time_zone = get_connect_params(socket)["timezone"]
     time_zone = get_connect_params(socket)["timezone"] || owner.time_zone
     # IO.inspect(owner, label: "^^^^^^^^ owner")
-    IO.inspect(time_zone, label: "^^^ time_zone in init_assigns.ex")
+    # IO.inspect(time_zone, label: "^^^ time_zone in init_assigns.ex")
 
     socket =
       socket
       |> assign(:time_zone, time_zone)
       |> assign(:owner, owner.name)
 
-    IO.inspect(socket.assigns, label: "^^^^^^^ socket.assigns in init_assigns.ex")
+    # IO.inspect(socket.assigns, label: "^^^^^^^ socket.assigns in init_assigns.ex")
 
     {:cont, socket}
   end

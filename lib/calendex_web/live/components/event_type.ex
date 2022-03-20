@@ -25,7 +25,7 @@ defmodule CalendexWeb.Components.EventType do
           next_month: next_month
         } = assigns
       ) do
-    IO.inspect(previous_month, label: "!!!! previous_month in calendar-event_type.ex")
+    # IO.inspect(previous_month, label: "!!!! previous_month in calendar-event_type.ex")
     previous_month_path = build_path(current_path, %{month: previous_month})
     next_month_path = build_path(current_path, %{month: next_month})
 
@@ -33,7 +33,8 @@ defmodule CalendexWeb.Components.EventType do
       assigns
       |> assign(previous_month_path: previous_month_path)
       |> assign(next_month_path: next_month_path)
-      |> IO.inspect(label: "assigns in calendar()")
+
+    # |> IO.inspect(label: "assigns in calendar()")
 
     ~H"""
     <div>
