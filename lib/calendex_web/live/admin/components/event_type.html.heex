@@ -16,8 +16,9 @@
             class: "text-blue-500 hover:underline" do %>View booking page<% end %>
     </div>
     <footer class="flex items-center h-16 px-4 mt-4 -m-4 text-sm border-t border-gray-200">
-        <button class="text-blue-500">
-            <i class="far fa-clone"></i> Copy link
-        </button>
+    <button id={"clipboard_#{@event_type.id}"} class="text-blue-500" data-content={Routes.live_url(@socket,
+        CalendexWeb.EventTypeLive, @event_type.slug)} phx-hook="Clipboard">
+        <i class="far fa-clone"></i> Copy link
+    </button>
     </footer>
 </div>
