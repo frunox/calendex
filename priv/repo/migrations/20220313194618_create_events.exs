@@ -7,6 +7,7 @@ defmodule Calendex.Repo.Migrations.CreateEvents do
       add :start_at, :utc_datetime, null: false
       add :end_at, :utc_datetime, null: false
       add :name, :string, null: false
+      add :email, :string, null: false
       add :time_zone, :string, null: false
       add :comments, :text
 

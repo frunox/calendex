@@ -92,7 +92,8 @@ defmodule CalendexWeb.EventTypeLive do
     socket
     |> assign(time_slots: time_slots)
     |> assign(selected_date: date)
-    |> IO.inspect(label: "#@#@#@ selected_date in assign_time_slots")
+
+    # |> IO.inspect(label: "#@#@#@ selected_date in assign_time_slots")
   end
 
   defp assign_time_slots(socket, _), do: socket
